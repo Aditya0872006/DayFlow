@@ -1,4 +1,5 @@
-package models;
+package com.example.dayFlow.models;
+
 
 public enum LeaveStatus {
 

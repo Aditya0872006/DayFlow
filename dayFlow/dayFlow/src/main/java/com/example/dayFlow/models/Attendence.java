@@ -1,4 +1,5 @@
-package models;
+package com.example.dayFlow.models;
+
 
 import jakarta.persistence.*;
 import lombok.*;

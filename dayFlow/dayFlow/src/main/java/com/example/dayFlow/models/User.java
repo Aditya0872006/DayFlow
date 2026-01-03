@@ -1,4 +1,4 @@
-package models;
+package com.example.dayFlow.models;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -9,6 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
