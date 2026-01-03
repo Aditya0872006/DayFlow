@@ -77,6 +77,17 @@
         border-bottom-color: var(--primary-purple);
       }
 
+      /* Custom Radio Buttons (Purple) */
+      .form-check-input:checked {
+        background-color: var(--primary-purple);
+        border-color: var(--primary-purple);
+      }
+
+      .form-check-input:focus {
+        box-shadow: 0 0 0 0.25rem rgba(192, 101, 232, 0.25);
+        border-color: var(--primary-purple);
+      }
+
       /* Button */
       .btn-purple {
         background-color: var(--primary-purple);
@@ -229,6 +240,35 @@
           <h4 class="mb-4" style="font-family: cursive">Sign Up Page</h4>
 
           <form>
+            <div class="mb-4">
+              <label class="form-label d-block">Select Role :-</label>
+              <div class="d-flex gap-4">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="roleSelector"
+                    id="roleAdmin"
+                    checked
+                  />
+                  <label class="form-check-label" for="roleAdmin">
+                    Admin (Company)
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="roleSelector"
+                    id="roleEmployee"
+                  />
+                  <label class="form-check-label" for="roleEmployee">
+                    Employee
+                  </label>
+                </div>
+              </div>
+            </div>
+
             <div class="mb-3">
               <label for="companyName" class="form-label"
                 >Company Name :-</label
@@ -363,29 +403,20 @@
         document.getElementById("logoUploadInput").click();
       }
 
-      // --- UPDATED LOGIC: SEPARATE FIELDS ---
+      // --- FILE UPLOAD FEEDBACK ---
       document
         .getElementById("logoUploadInput")
         .addEventListener("change", function () {
           if (this.files && this.files[0]) {
             const fileName = this.files[0].name;
-
-            // 1. DO NOT touch the 'companyName' text box.
-
-            // 2. Display the filename in the small feedback area below
             const feedback = document.getElementById("fileNameDisplay");
             feedback.textContent = "Logo Selected: " + fileName;
             feedback.classList.remove("hidden");
 
-            // 3. Visual Feedback: Change Icon to Green Checkmark
             const iconWrapper = document.getElementById("uploadIconWrapper");
             const icon = iconWrapper.querySelector("i");
-
-            // Change color to green (Success)
             iconWrapper.classList.remove("text-primary");
             iconWrapper.classList.add("text-success");
-
-            // Change icon from 'upload' to 'check-circle'
             icon.classList.remove("bi-upload");
             icon.classList.add("bi-check-circle-fill");
           }
