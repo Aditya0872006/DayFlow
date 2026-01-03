@@ -23,7 +23,6 @@ public class AuthService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
-    // ================= REGISTER =================
     public Response<RegisterResponseDTO> register(RegisterRequestDTO request) {
 
         if (userRepository.existsByEmail(request.getEmail())) {
@@ -62,7 +61,6 @@ public class AuthService {
                 .build();
     }
 
-    // ================= LOGIN =================
     public Response<LoginResponseDTO> login(LoginRequestDTO request) {
 
         authenticationManager.authenticate(
